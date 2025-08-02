@@ -11,35 +11,39 @@ const CloudyBackground = () => {
     {
       id: 1,
       src: cloud1,
-      initialY: "20%",
+      initialY: "-5%",
       scale: 0.8,
       duration: 30,
+      flipY: true,
     },
     {
       id: 2,
       src: cloud2,
-      initialY: "45%",
+      initialY: "0%",
       scale: 1.2,
       duration: 20,
+      flipY: true,
     },
     {
       id: 3,
       src: cloud3,
-      initialY: "10%",
+      initialY: "3%",
       scale: 1,
       duration: 25,
+      flipY: true,
     },
     {
       id: 4,
       src: cloud4,
-      initialY: "60%",
+      initialY: "-1%",
       scale: 0.9,
       duration: 18,
+      flipY: true,
     },
     {
       id: 5,
       src: cloud5,
-      initialY: "75%",
+      initialY: "65%",
       scale: 1.4,
       duration: 35,
     },
@@ -52,7 +56,9 @@ const CloudyBackground = () => {
             key={cloud.id}
             src={cloud.src}
             alt={`${cloud.id}`}
-            className="absolute opacity-60"
+            className={`absolute opacity-60 ${
+              cloud.flipY ? "scale-y-[-1]" : ""
+            }`}
             style={{
               top: cloud.initialY,
               scale: cloud.scale,
