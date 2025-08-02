@@ -1,10 +1,11 @@
 import "./App.css";
+import NightBackground from "./backgrounds/NightBackground";
 import SunnyBackground from "./backgrounds/SunnyBackground";
 
 function App() {
   return (
     <div>
-      <SunnyBackground />
+      <NightBackground />
     </div>
   );
 }

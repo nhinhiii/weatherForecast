@@ -41,4 +41,8 @@
   .bg-thunderstorm {
     background-image: var(--bg-thunderstorm);
   }
+  .star {
+    @apply absolute rounded-full bg-white;
+    box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.5);
+  }
 }
