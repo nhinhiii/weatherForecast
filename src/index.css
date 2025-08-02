@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Moderustic:wght@300..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@import "tailwindcss";
+
+:root {
+  --bg-sunny: linear-gradient(180deg, #0059d5 0%, #79eaff 100%);
+  --bg-night: linear-gradient(180deg, #1b2141 0%, #bb96ca 100%);
+  --bg-rainy: linear-gradient(
+    180deg,
+    rgba(82, 97, 107, 0.47) 0%,
+    rgba(62, 74, 89, 0.8) 100%
+  );
+  --bg-cloudy: linear-gradient(
+    180deg,
+    rgba(201, 231, 254, 0.48) 0%,
+    rgba(148, 163, 184, 0.8) 100%
+  );
+  --bg-snowy: linear-gradient(180deg, #f7f7f7 0%, #e1f3ff 100%);
+  --bg-thunderstorm: linear-gradient(
+    180deg,
+    rgba(54, 54, 76, 0.72) 0%,
+    #1e2025 100%
+  );
+}
+
+@layer utilities {
+  .bg-sunny {
+    background-image: var(--bg-sunny);
+  }
+  .bg-night {
+    background-image: var(--bg-night);
+  }
+  .bg-rainy {
+    background-image: var(--bg-rainy);
+  }
+  .bg-cloudy {
+    background-image: var(--bg-cloudy);
+  }
+  .bg-snowy {
+    background-image: var(--bg-snowy);
+  }
+  .bg-thunderstorm {
+    background-image: var(--bg-thunderstorm);
+  }
+}
