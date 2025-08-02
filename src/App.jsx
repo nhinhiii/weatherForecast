@@ -1,4 +1,5 @@
 import "./App.css";
+import CloudyBackground from "./backgrounds/CloudyBackground";
 import NightBackground from "./backgrounds/NightBackground";
 import RainyBackground from "./backgrounds/RainyBackground";
 import SunnyBackground from "./backgrounds/SunnyBackground";
@@ -6,7 +7,7 @@ import SunnyBackground from "./backgrounds/SunnyBackground";
 function App() {
   return (
     <div>
-      <RainyBackground />
+      <CloudyBackground />
     </div>
   );
 }
