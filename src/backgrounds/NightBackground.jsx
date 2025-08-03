@@ -36,7 +36,7 @@ const NightBackground = () => {
   //create random
 
   return (
-    <div className="min-h-screen bg-background text-foreground overflow-x-hidden bg-night">
+    <div className="min-h-screen overflow-x-hidden bg-night">
       <div className="absolute inset-0 pointer-events-none">
         {stars.map((star) => (
           <div
