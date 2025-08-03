@@ -45,4 +45,7 @@
     @apply absolute rounded-full bg-white;
     box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.5);
   }
+  .shadow-snow {
+    box-shadow: 0 4px 4px 0 rgb(126, 204, 235);
+  }
 }
