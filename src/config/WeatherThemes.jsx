@@ -12,7 +12,7 @@ import CloudyBackground from "../backgrounds/CloudyBackground";
 import ThunderstormBackground from "../backgrounds/ThunderstormBackground";
 import SnowyBackground from "../backgrounds/SnowyBackground";
 
-export const WeatherThemes = {
+export const weatherThemes = {
   Sunny: {
     background: <SunnyBackground />,
     src: sunny,
