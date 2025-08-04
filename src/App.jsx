@@ -6,11 +6,12 @@ import SnowyBackground from "./backgrounds/SnowyBackground";
 import SunnyBackground from "./backgrounds/SunnyBackground";
 import ThunderstormBackground from "./backgrounds/ThunderstormBackground";
 import TestAPI from "./Route/TestAPI";
+import WeatherForcast from "./Route/WeatherForcast";
 
 function App() {
   return (
     <div>
-      <TestAPI />
+      <WeatherForcast />
     </div>
   );
 }

@@ -11,30 +11,39 @@ import RainyBackground from "../backgrounds/RainyBackground";
 import CloudyBackground from "../backgrounds/CloudyBackground";
 import ThunderstormBackground from "../backgrounds/ThunderstormBackground";
 import SnowyBackground from "../backgrounds/SnowyBackground";
+import normalClothes from "../assets/Icons/normalClothes.png";
+import umbrella from "../assets/Icons/umbrella.png";
+import winterClothes from "../assets/Icons/winterClothes.png";
 
 export const weatherThemes = {
   Sunny: {
     background: <SunnyBackground />,
     src: sunny,
+    clothes: normalClothes,
   },
   Night: {
     background: <NightBackground />,
     src: night,
+    clothes: normalClothes,
   },
   Rain: {
     background: <RainyBackground />,
     src: rainy,
+    clothes: umbrella,
   },
   Clouds: {
     background: <CloudyBackground />,
     src: cloud,
+    clothes: normalClothes,
   },
   Thunderstorm: {
     background: <ThunderstormBackground />,
     src: thunderstorm,
+    clothes: umbrella,
   },
-  Snow: {
+  Winter: {
     background: <SnowyBackground />,
     src: snowy,
+    clothes: winterClothes,
   },
 };
