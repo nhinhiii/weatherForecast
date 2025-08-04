@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getWeatherTheme } from "../lib/weatherUtils";
 import { weatherThemes } from "../config/weatherThemes";
+import { capitalizeWords } from "../lib/capitilize";
 
 const WeatherForcast = () => {
   const [cityInput, setCityInput] = useState("");
@@ -49,17 +50,14 @@ const WeatherForcast = () => {
 
         <div>
           <div className="absolute inset-0 flex items-center justify-center z-10">
-            <img
-              src={currentTheme.src}
-              alt={themeName}
-              className="w-50 h-auto"
-            />
-            <div className="text-white text-center">
-              <p> {formattedDate} </p>
-              <p> {weatherData.name}</p>
-              <p> {weatherData.date}</p>
-              <p> {Math.floor(weatherData.main.temp)}°</p>
-              <p> {weatherData.weather[0].description}</p>
+            <div className="text-[#FFFAFA] text-center">
+              <p className="text-2xl font-mono"> {formattedDate} </p>
+              <p className="text-lg"> {weatherData.name}</p>
+              <p className="text-7xl"> {Math.floor(weatherData.main.temp)}°</p>
+              <p className="text-2xl text-[#0095FF]">
+                {" "}
+                {capitalizeWords(weatherData.weather[0].description)}
+              </p>
               <p> Max: {Math.floor(weatherData.main.temp_max)}°</p>
               <p> Min: {Math.floor(weatherData.main.temp_min)}°</p>
             </div>
