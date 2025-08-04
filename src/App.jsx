@@ -5,11 +5,13 @@ import RainyBackground from "./backgrounds/RainyBackground";
 import SnowyBackground from "./backgrounds/SnowyBackground";
 import SunnyBackground from "./backgrounds/SunnyBackground";
 import ThunderstormBackground from "./backgrounds/ThunderstormBackground";
+import TestAPI from "./Route/TestAPI";
+import WeatherDisplayTest from "./Route/WeatherDisplay";
 
 function App() {
   return (
     <div>
-      <ThunderstormBackground />
+      <TestAPI />
     </div>
   );
 }
