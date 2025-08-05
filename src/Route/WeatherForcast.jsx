@@ -6,6 +6,7 @@ import wind from "../assets/Icons/wind.svg";
 import sunrise from "../assets/Icons/sunrise.svg";
 import sunset from "../assets/Icons/sunset.svg";
 import humid from "../assets/Icons/humid.svg";
+import { convertTime } from "../lib/convertTime";
 
 const WeatherForecast = () => {
   const [cityInput, setCityInput] = useState("");
@@ -137,11 +138,22 @@ const WeatherForecast = () => {
                     <div className="flex flex-col mt-8 gap-10">
                       <div className="flex gap-2">
                         <img src={sunrise} size={16} />
-                        <p> {weatherData.sys.sunrise}</p>
+                        <p>
+                          {convertTime(
+                            weatherData.sys.sunrise,
+                            weatherData.timezone
+                          )}
+                        </p>
                       </div>
                       <div className="flex gap-2">
                         <img src={sunset} size={16} />
-                        <p> {weatherData.sys.sunset}</p>
+                        <p>
+                          {" "}
+                          {convertTime(
+                            weatherData.sys.sunset,
+                            weatherData.timezone
+                          )}
+                        </p>
                       </div>
                     </div>
                   </div>
