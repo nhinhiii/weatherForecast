@@ -3,7 +3,7 @@ import { getWeatherTheme } from "../lib/weatherUtils";
 import { weatherThemes } from "../config/weatherThemes";
 import { capitalizeWords } from "../lib/capitilize";
 
-const WeatherForcast = () => {
+const WeatherForecast = () => {
   const [cityInput, setCityInput] = useState("");
   const [weatherData, setWeatherData] = useState(null);
   const [err, setErr] = useState(null);
@@ -42,78 +42,78 @@ const WeatherForcast = () => {
     search(cityInput);
   };
 
-  const formattedDate = () => {
-    const date = new Date(weatherData.dt * 1000);
-    const options = {
-      month: "short",
-      day: "2-digit",
-      year: "numeric",
-    };
-    return date.toLocaleDateString("en-US", options);
-  };
-
-  const themeName = weatherData ? getWeatherTheme(weatherData) : "Sunny";
-  const currentTheme = weatherThemes[themeName];
-
   return (
     <div className="relative h-screen w-full">
-      {currentTheme.background}
+      {weatherData
+        ? weatherThemes[getWeatherTheme(weatherData)].background
+        : weatherThemes["Sunny"].background}
 
       <form
         onSubmit={handleSearch}
-        className="absolute top-10 right-15 z-20 flex items-center"
+        className="absolute top-4 right-4 z-20 flex items-center gap-2"
       >
         <input
           type="text"
           onChange={(e) => setCityInput(e.target.value)}
           value={cityInput}
           placeholder="Type the city name..."
-          className="p-2 rounded-xs text-black bg-white border border-black focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="p-2 rounded-md text-white bg-black/30 border border-white/20 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
         />
         <button
           type="submit"
-          className="p-2 bg-[rgba(255,248,248,0.51)] cursor-pointer rounded-xs hover:bg-blue-600 transition-colors"
-          disable={isLoading}
+          className="p-2 rounded-md bg-blue-500 text-white hover:bg-blue-600 transition-colors disabled:bg-gray-500"
+          disabled={isLoading}
         >
           {isLoading ? "..." : "Search"}
         </button>
       </form>
 
-      <div>
-        <div className="absolute inset-0 flex items-center justify-center z-10">
-          {isLoading && (
-            <div className="text-white text-2xl"> Loading ... </div>
-          )}
-          {err && (
-            <div className="text-red-400 bg-red-900 bg-opacity-50 text-center p-10 rounded-lg">
-              {err}
-            </div>
-          )}
-          {weatherData && !isLoading && !err && (
-            <div className="text-[#FFFAFA] text-center">
-              <p className="text-2xl font-mono"> {formattedDate} </p>
-              <p className="text-lg font-serif mt-4"> {weatherData.name}</p>
-              <p className="text-7xl mt-4">
-                {" "}
-                {Math.floor(weatherData.main.temp)}°
-              </p>
-              <p
-                className="text-2xl font-medium mt-4"
-                style={{ color: `${currentTheme.themeColor}` }}
-              >
-                {" "}
-                {capitalizeWords(weatherData.weather[0].description)}
-              </p>
-              <div className="flex flex-row gap-12 sm:flex-1 mt-4">
-                <p> Max: {Math.floor(weatherData.main.temp_max)}°</p>
-                <p> Min: {Math.floor(weatherData.main.temp_min)}°</p>
-              </div>
-            </div>
-          )}
-        </div>
+      <div className="absolute inset-0 flex items-center justify-center z-10">
+        {isLoading && <div className="text-white text-2xl"> Loading ... </div>}
+        {err && (
+          <div className="text-red-400 bg-red-900 bg-opacity-50 text-center p-10 rounded-lg">
+            {err}
+          </div>
+        )}
+        {weatherData && !isLoading && !err && (
+          <div className="text-[#FFFAFA] text-center">
+            {(() => {
+              const themeName = getWeatherTheme(weatherData);
+              const currentTheme = weatherThemes[themeName];
+              const date = new Date(weatherData.dt * 1000);
+              const options = {
+                month: "short",
+                day: "2-digit",
+                year: "numeric",
+              };
+              const formattedDate = date.toLocaleDateString("en-US", options);
+
+              return (
+                <>
+                  <p className="text-2xl font-mono"> {formattedDate} </p>
+                  <p className="text-lg font-serif mt-4"> {weatherData.name}</p>
+                  <p className="text-7xl mt-4">
+                    {" "}
+                    {Math.floor(weatherData.main.temp)}°
+                  </p>
+                  <p
+                    className="text-2xl font-medium mt-4 capitalize"
+                    style={{ color: `${currentTheme.themeColor}` }}
+                  >
+                    {capitalizeWords(weatherData.weather[0].description)}
+                  </p>
+                  <div className="flex justify-center gap-12 mt-4">
+                    <p> Max: {Math.floor(weatherData.main.temp_max)}°</p>
+                    <p> Min: {Math.floor(weatherData.main.temp_min)}°</p>
+                  </div>
+                </>
+              );
+            })()}
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
-export default WeatherForcast;
+export default WeatherForecast;
