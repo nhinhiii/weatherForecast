@@ -11,7 +11,7 @@ const CloudyBackground = () => {
     {
       id: 1,
       src: cloud1,
-      initialY: "-5%",
+      initialY: "-8%",
       scale: 0.8,
       duration: 30,
       flipY: true,
@@ -19,7 +19,7 @@ const CloudyBackground = () => {
     {
       id: 2,
       src: cloud2,
-      initialY: "-4%",
+      initialY: "-8%",
       scale: 1.2,
       duration: 20,
       flipY: true,
@@ -27,7 +27,7 @@ const CloudyBackground = () => {
     {
       id: 3,
       src: cloud3,
-      initialY: "2%",
+      initialY: "-8%",
       scale: 1,
       duration: 25,
       flipY: true,
@@ -35,7 +35,7 @@ const CloudyBackground = () => {
     {
       id: 4,
       src: cloud4,
-      initialY: "-2%",
+      initialY: "-8%",
       scale: 0.9,
       duration: 18,
       flipY: true,
@@ -43,7 +43,7 @@ const CloudyBackground = () => {
     {
       id: 5,
       src: cloud5,
-      initialY: "65%",
+      initialY: "40%",
       scale: 1.4,
       duration: 35,
     },
