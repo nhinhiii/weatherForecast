@@ -19,31 +19,37 @@ export const weatherThemes = {
   Sunny: {
     background: <SunnyBackground />,
     src: sunny,
+    themeColor: "#0095FF",
     clothes: normalClothes,
   },
   Night: {
     background: <NightBackground />,
     src: night,
+    themeColor: "#671A80",
     clothes: normalClothes,
   },
   Rain: {
     background: <RainyBackground />,
     src: rainy,
+    themeColor: "#20002B",
     clothes: umbrella,
   },
   Clouds: {
     background: <CloudyBackground />,
     src: cloud,
+    themeColor: "#879FDD",
     clothes: normalClothes,
   },
   Thunderstorm: {
     background: <ThunderstormBackground />,
     src: thunderstorm,
+    themeColor: "#D7DBE6",
     clothes: umbrella,
   },
-  Winter: {
+  Snow: {
     background: <SnowyBackground />,
     src: snowy,
+    themeColor: "#9EB3E7",
     clothes: winterClothes,
   },
 };
