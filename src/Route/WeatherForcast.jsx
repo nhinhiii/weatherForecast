@@ -126,17 +126,17 @@ const WeatherForecast = () => {
 
                   <div className="grid grid-cols-2 justify-center mt-8 gap-30">
                     <div className="flex flex-col mt-8 gap-10">
-                      <div className="flex gap-2 items-center">
+                      <div className="flex gap-3 items-center">
                         <img src={wind} size={16} />
                         <p> {weatherData.wind.speed} mph</p>
                       </div>
-                      <div className="flex gap-2 items-center">
+                      <div className="flex gap-3 items-center">
                         <img src={humid} size={16} />
                         <p> {weatherData.main.humidity} %</p>
                       </div>
                     </div>
-                    <div className="flex flex-col mt-8 gap-10">
-                      <div className="flex gap-2 items-center">
+                    <div className="flex flex-col mt-8 gap-10 items-center">
+                      <div className="flex gap-3 items-center">
                         <img src={sunrise} size={16} />
                         <p>
                           {convertTime(
@@ -145,7 +145,7 @@ const WeatherForecast = () => {
                           )}
                         </p>
                       </div>
-                      <div className="flex gap-2 items-center">
+                      <div className="flex gap-3 items-center">
                         <img src={sunset} size={16} />
                         <p>
                           {" "}
