@@ -25,7 +25,7 @@ export const weatherThemes = {
   Night: {
     background: <NightBackground />,
     src: night,
-    themeColor: "#671A80",
+    themeColor: "#8522C9",
     clothes: normalClothes,
   },
   Rain: {

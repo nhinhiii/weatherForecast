@@ -13,7 +13,7 @@ const WeatherForecast = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  const weatherAPI = import.meta.env.VITE_WEATHER_API;
+  const weatherAPI = import.meta.env.VITE_WEATHERFORECAST_API;
 
   const search = async (city) => {
     if (!city) return;
@@ -53,7 +53,7 @@ const WeatherForecast = () => {
 
       <img
         src={currentTheme.src}
-        className="absolute w-50 sm:30 h-auto top-20 left-35"
+        className="absolute w-50 sm:30 h-auto top-20 left-35 z-10"
       />
 
       <form
@@ -107,8 +107,13 @@ const WeatherForecast = () => {
               );
 
               return (
-                <div>
-                  <p className="text-2xl font-mono">{formattedDate}</p>
+                <div className="z-10">
+                  <p
+                    className="text-2xl font-mono"
+                    style={{ color: `${currentTheme.themeColor}` }}
+                  >
+                    {formattedDate}
+                  </p>
                   <p className="text-lg font-serif mt-4">{weatherData.name}</p>
                   <p className="text-7xl mt-4">
                     {Math.floor(weatherData.main.temp)}°
