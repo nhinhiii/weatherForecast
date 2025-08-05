@@ -47,7 +47,7 @@ const WeatherForecast = () => {
   const currentTheme = weatherThemes[themeName];
 
   return (
-    <div className="relative h-screen w-full">
+    <div className="relative h-screen">
       {currentTheme.background}
 
       <img
@@ -125,23 +125,23 @@ const WeatherForecast = () => {
 
                   <div className="grid grid-cols-2 justify-center mt-8 gap-30">
                     <div className="flex flex-col mt-8 gap-10">
-                      <div className="flex">
+                      <div className="flex gap-2">
                         <img src={wind} size={16} />
                         <p> {weatherData.wind.speed} mph</p>
                       </div>
-                      <div className="flex">
+                      <div className="flex gap-2">
                         <img src={humid} size={16} />
-                        <p> {weatherData.wind.speed} mph</p>
+                        <p> {weatherData.main.humidity} %</p>
                       </div>
                     </div>
                     <div className="flex flex-col mt-8 gap-10">
-                      <div className="flex">
+                      <div className="flex gap-2">
                         <img src={sunrise} size={16} />
-                        <p> {weatherData.wind.speed} mph</p>
+                        <p> {weatherData.sys.sunrise}</p>
                       </div>
-                      <div className="flex">
+                      <div className="flex gap-2">
                         <img src={sunset} size={16} />
-                        <p> {weatherData.wind.speed} mph</p>
+                        <p> {weatherData.sys.sunset}</p>
                       </div>
                     </div>
                   </div>
