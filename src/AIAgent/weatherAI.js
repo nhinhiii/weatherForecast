@@ -1,7 +1,7 @@
 export const weatherAI = async (weatherData) => {
   const prompt = `You are a helpful fashion and safety advisor, you will give me some outfits suggestion based on these following weather data for ${
     weatherData.name
-  }, provide a concise reminder and three casual outfit suggestions (one male, one female, unisex).
+  }, provide a concise reminder and three casual outfit suggestions (one male, one female, one unisex).
 
     Weather Data:
     - Condition: ${weatherData.weather[0].description}
@@ -15,7 +15,7 @@ export const weatherAI = async (weatherData) => {
     Please provide the response in the exact JSON format requested. The reminder should be a short, friendly tip. The outfits should be 2-3 bullet points each.
   `;
 
-  const outfits = {
+  const outfitsSchema = {
     type: "OBJECT",
     properties: {
       reminder: { type: "STRING" },
@@ -23,28 +23,30 @@ export const weatherAI = async (weatherData) => {
         type: "ARRAY",
         items: { type: "STRING" },
       },
-      femaleOutfits: {
+      // FIX: Corrected typo from "femaleOutfits" to "femaleOutfit"
+      femaleOutfit: {
         type: "ARRAY",
         items: { type: "STRING" },
       },
-      generalOutfit: {
+      unisexOutfit: {
+        // Changed from generalOutfit to be more specific
         type: "ARRAY",
         items: { type: "STRING" },
       },
     },
-    required: ["reminder", "maleOutfit", "femaleOutfit", "generalOutfit"],
+    required: ["reminder", "maleOutfit", "femaleOutfit", "unisexOutfit"],
   };
 
   const payload = {
     contents: [{ parts: [{ text: prompt }] }],
     generationConfig: {
       response_mime_type: "application/json",
-      response_schema: outfits,
+      response_schema: outfitsSchema,
     },
   };
 
-  const gemimi_api_key = import.meta.env.VITE_GEMINI_API;
-  const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${gemimi_api_key}`;
+  const gemini_api_key = import.meta.env.VITE_GEMINI_API;
+  const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${gemini_api_key}`;
 
   try {
     const response = await fetch(API_URL, {
@@ -54,15 +56,20 @@ export const weatherAI = async (weatherData) => {
     });
 
     if (!response.ok) {
-      throw new Error(`Check the API. Fail to get data!!!!!`);
+      throw new Error(`AI API call failed!`);
     }
 
     const data = await response.json();
-
     const jsonString = data.candidates[0].content.parts[0].text;
     return JSON.parse(jsonString);
   } catch (err) {
-    console.log("Fail to get data!!!!", err);
-    return;
+    console.error("Failed to get AI suggestions:", err);
+    // Return a default error object so the app doesn't crash
+    return {
+      reminder: "Could not get AI suggestion at this time.",
+      maleOutfit: ["-"],
+      femaleOutfit: ["-"],
+      unisexOutfit: ["-"],
+    };
   }
 };

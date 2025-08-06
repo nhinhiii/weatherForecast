@@ -7,6 +7,7 @@ import sunrise from "../assets/Icons/sunrise.svg";
 import sunset from "../assets/Icons/sunset.svg";
 import humid from "../assets/Icons/humid.svg";
 import { convertTime } from "../lib/convertTime";
+import AIAgentDisplay from "../AIAgent/AIAgentDisplay";
 
 const WeatherForecast = () => {
   const [cityInput, setCityInput] = useState("");
@@ -75,6 +76,12 @@ const WeatherForecast = () => {
           {isLoading ? "..." : "Search"}
         </button>
       </form>
+
+      <AIAgentDisplay
+        className="absolute top-30 right-8 z-20 mt-4"
+        weatherData={weatherData}
+        currentTheme={currentTheme}
+      />
 
       <div className="absolute inset-0 flex items-center justify-center z-10">
         {error && (
