@@ -11,9 +11,12 @@ import RainyBackground from "../backgrounds/RainyBackground";
 import CloudyBackground from "../backgrounds/CloudyBackground";
 import ThunderstormBackground from "../backgrounds/ThunderstormBackground";
 import SnowyBackground from "../backgrounds/SnowyBackground";
-import normalClothes from "../assets/Icons/normalClothes.png";
-import umbrella from "../assets/Icons/umbrella.png";
-import winterClothes from "../assets/Icons/winterClothes.png";
+import maleSunny from "../assets/Icons/maleSunny.png";
+import femaleSunny from "../assets/Icons/femaleSunny.png";
+import maleRainny from "../assets/Icons/maleRainy.png";
+import femaleRainny from "../assets/Icons/femaleRainy.png";
+import maleSnowy from "../assets/Icons/maleSnowy.png";
+import femaleSnowy from "../assets/Icons/femaleSnowy.png";
 
 export const weatherThemes = {
   Sunny: {
@@ -21,41 +24,59 @@ export const weatherThemes = {
     src: sunny,
     themeColor: "#0095FF",
     generalColor: "#FFFFFF",
-    clothes: normalClothes,
+    clothes: {
+      male: maleSunny,
+      female: femaleSunny,
+    },
   },
   Night: {
     background: <NightBackground />,
     src: night,
-    themeColor: "#8522C9",
+    themeColor: "#731DAE",
     generalColor: "#FFFFFF",
-    clothes: normalClothes,
+    clothes: {
+      male: maleSunny,
+      female: femaleSunny,
+    },
   },
   Rain: {
     background: <RainyBackground />,
     src: rainy,
     themeColor: "#20002B",
     generalColor: "#FFFFFF",
-    clothes: umbrella,
+    clothes: {
+      male: maleRainny,
+      female: femaleRainny,
+    },
   },
   Clouds: {
     background: <CloudyBackground />,
     src: cloud,
     themeColor: "#879FDD",
     generalColor: "#231F20",
-    clothes: normalClothes,
+    clothes: {
+      male: maleSunny,
+      female: femaleSunny,
+    },
   },
   Thunderstorm: {
     background: <ThunderstormBackground />,
     src: thunderstorm,
     themeColor: "#D7DBE6",
     generalColor: "#FFFFFF",
-    clothes: umbrella,
+    clothes: {
+      male: maleRainny,
+      female: femaleRainny,
+    },
   },
   Snow: {
     background: <SnowyBackground />,
     src: snowy,
     themeColor: "#9EB3E7",
     generalColor: "#231F20",
-    clothes: winterClothes,
+    clothes: {
+      male: maleSnowy,
+      female: femaleSnowy,
+    },
   },
 };

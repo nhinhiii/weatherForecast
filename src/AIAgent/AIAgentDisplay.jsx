@@ -19,6 +19,15 @@ const AIAgentDisplay = ({ weatherData, currentTheme, className }) => {
     }
   }, [weatherData]);
 
+  let clothesImageSrc = null;
+  if (currentTheme && currentTheme.clothes) {
+    if (gender === "male") {
+      clothesImageSrc = currentTheme.clothes.male;
+    } else if (gender === "female") {
+      clothesImageSrc = currentTheme.clothes.female;
+    }
+  }
+
   return (
     <div
       className={cn(
@@ -44,7 +53,7 @@ const AIAgentDisplay = ({ weatherData, currentTheme, className }) => {
         <img
           src={chatBot}
           alt="AI Agent Icon"
-          className="h-16 w-16 rounded-full border-4 border-white shadow-lg"
+          className="h-16 w-16 rounded-full border-4 border-white shadow-lg transition-all duration-300 ease-in-out hover:scale-105 hover:shadow-cyan-300/50"
         />
       </div>
 
@@ -86,34 +95,42 @@ const AIAgentDisplay = ({ weatherData, currentTheme, className }) => {
           </button>
         </div>
 
-        <div className="flex items-center gap-4 min-h-[150px]">
+        <div className="flex items-center justify-center gap-4 min-h-[150px]">
           {isLoading ? (
             <p className="w-full text-center">Getting suggestions...</p>
           ) : (
-            suggestions && (
+            suggestions &&
+            (gender === "unisex" ? (
+              <div className="w-full">
+                <ul className="list-disc list-inside space-y-2 text-sm text-start ml-8">
+                  {suggestions.unisexOutfit.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            ) : (
               <>
                 <div className="flex-1 ml-4">
                   <ul className="list-disc list-inside space-y-2 text-sm">
                     {(gender === "male"
                       ? suggestions.maleOutfit
-                      : gender === "female"
-                      ? suggestions.femaleOutfit
-                      : suggestions.unisexOutfit
+                      : suggestions.femaleOutfit
                     ).map((item, index) => (
                       <li key={index}>{item}</li>
                     ))}
                   </ul>
                 </div>
-
                 <div className="w-1/3">
-                  <img
-                    src={currentTheme.clothes}
-                    alt={`${gender} outfit suggestion`}
-                    className="h-auto w-full"
-                  />
+                  {clothesImageSrc && (
+                    <img
+                      src={clothesImageSrc}
+                      alt={`${gender} outfit suggestion`}
+                      className="h-40 w-320"
+                    />
+                  )}
                 </div>
               </>
-            )
+            ))
           )}
         </div>
       </div>

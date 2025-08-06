@@ -59,7 +59,7 @@ const WeatherForecast = () => {
 
       <form
         onSubmit={handleSearch}
-        className="absolute top-4 right-4 z-20 flex items-center gap-2"
+        className="absolute top-8 right-8 z-20 flex items-center gap-2"
       >
         <input
           type="text"
@@ -114,13 +114,11 @@ const WeatherForecast = () => {
               );
 
               return (
-                <div className="z-10">
-                  <p
-                    className="text-2xl font-mono"
-                    style={{ color: `${currentTheme.themeColor}` }}
-                  >
-                    {formattedDate}
-                  </p>
+                <div
+                  className="z-10"
+                  style={{ color: `${currentTheme.generalColor}` }}
+                >
+                  <p className="text-2xl font-mono">{formattedDate}</p>
                   <p className="text-lg font-serif mt-4">{weatherData.name}</p>
                   <p className="text-7xl mt-4">
                     {Math.floor(weatherData.main.temp)}°
