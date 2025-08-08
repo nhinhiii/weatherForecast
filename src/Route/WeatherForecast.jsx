@@ -34,6 +34,7 @@ const WeatherForecast = () => {
     } finally {
       setIsLoading(false);
     }
+    setCityInput("");
   };
 
   useEffect(() => {
@@ -56,7 +57,7 @@ const WeatherForecast = () => {
 
       <form
         onSubmit={handleSearch}
-        className="absolute top-8 right-8 z-30 flex items-center gap-2"
+        className="absolute top-8 right-12 z-30 flex items-center gap-2"
       >
         <input
           type="text"
@@ -77,8 +78,7 @@ const WeatherForecast = () => {
       <div
         className="absolute inset-0 z-20 overflow-y-auto 
                    p-4 pt-24 lg:pt-4
-                   flex flex-col items-center justify-center 
-                   lg:block"
+                   flex flex-col items-center justify-center"
       >
         {isLoading && !weatherData && (
           <div className="text-white text-2xl">Loading...</div>
@@ -170,7 +170,7 @@ const WeatherForecast = () => {
 
             <div
               className="w-95 max-w-md mt-20 mb-20
-                         lg:absolute lg:top-28 lg:right-8 lg:mt-0 lg-full"
+                         lg:absolute lg:top-28 lg:right-12 lg:mt-0 lg-full"
             >
               <AIAgentDisplay
                 weatherData={weatherData}
