@@ -8,6 +8,7 @@ import humid from "../assets/Icons/humid.svg";
 import { convertTime } from "../lib/convertTime";
 import AIAgentDisplay from "../AIAgent/AIAgentDisplay";
 import { convertDate } from "../lib/convertDate";
+import Footer from "../components/Footer";
 
 const WeatherForecast = () => {
   const [cityInput, setCityInput] = useState("");
@@ -180,6 +181,7 @@ const WeatherForecast = () => {
           </>
         )}
       </div>
+      <Footer />
     </div>
   );
 };
