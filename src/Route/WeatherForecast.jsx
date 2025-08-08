@@ -51,13 +51,13 @@ const WeatherForecast = () => {
   const currentTheme = weatherThemes[themeName];
 
   return (
-    <div className="relative w-screen h-screen overflow-hidden">
+    <div className="relative w-screen h-[100dvh] overflow-hidden">
       <div className="absolute inset-0 z-0">{currentTheme.background}</div>
       <img
         src={currentTheme.src}
-        className="absolute w-24 h-auto top-8 left-4 z-10 
-                   md:w-32 md:left-8
-                   lg:w-40 lg:top-20 lg:left-28"
+        className=" w-30 h-auto top-20 left-12 z-10 
+                   md:w-40 md:left-20 absolute
+                   lg:w-50 lg:top-20 lg:left-28"
         alt="Weather theme icon"
       />
 
@@ -99,7 +99,7 @@ const WeatherForecast = () => {
         {weatherData && !error && (
           <>
             <div
-              className={`w-full max-w-md text-[#FFFAFA] text-center transition-opacity duration-500 mt-60 lg:mt-0
+              className={`w-full max-w-md text-[#FFFAFA] text-center transition-opacity duration-500 mt-80 pt-10 lg:mt-0
                          lg:absolute lg:top-1/2 lg:left-1/2 lg:-translate-x-1/2 lg:-translate-y-1/2 ${
                            isLoading ? "opacity-30" : "opacity-100"
                          }`}
@@ -168,7 +168,7 @@ const WeatherForecast = () => {
             </div>
 
             <div
-              className="w-95 max-w-md mt-20
+              className="w-95 max-w-md mt-20 mb-20
                          lg:absolute lg:top-24 lg:right-8 lg:mt-0 lg-full"
             >
               <AIAgentDisplay
