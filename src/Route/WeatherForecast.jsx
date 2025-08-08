@@ -170,7 +170,7 @@ const WeatherForecast = () => {
 
             <div
               className="w-95 max-w-md mt-20 mb-20
-                         lg:absolute lg:top-24 lg:right-8 lg:mt-0 lg-full"
+                         lg:absolute lg:top-28 lg:right-8 lg:mt-0 lg-full"
             >
               <AIAgentDisplay
                 weatherData={weatherData}
