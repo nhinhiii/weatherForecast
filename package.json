@@ -1,5 +1,6 @@
 {
   "name": "weatherforecast",
+  "homepage": "https://nhinhii.github.io/weatherForecast",
   "private": true,
   "version": "0.0.0",
   "type": "module",
