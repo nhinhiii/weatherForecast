@@ -78,7 +78,7 @@ const WeatherForecast = () => {
 
       <div
         className="absolute inset-0 z-20 overflow-y-auto 
-                   p-4 pt-24 lg:pt-4
+                    pt-24 lg:pt-4
                    flex flex-col items-center justify-center"
       >
         {isLoading && !weatherData && (
@@ -180,8 +180,8 @@ const WeatherForecast = () => {
             </div>
           </>
         )}
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 };
