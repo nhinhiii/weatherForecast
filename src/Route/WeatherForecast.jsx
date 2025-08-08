@@ -53,13 +53,6 @@ const WeatherForecast = () => {
   return (
     <div className="relative w-screen h-[100dvh] overflow-hidden">
       <div className="absolute inset-0 z-0">{currentTheme.background}</div>
-      <img
-        src={currentTheme.src}
-        className=" w-30 h-auto top-20 left-12 z-10 
-                   md:w-40 md:left-20 absolute
-                   lg:w-50 lg:top-20 lg:left-28"
-        alt="Weather theme icon"
-      />
 
       <form
         onSubmit={handleSearch}
@@ -95,6 +88,14 @@ const WeatherForecast = () => {
             {error}
           </div>
         )}
+
+        <img
+          src={currentTheme.src}
+          className=" w-30 h-auto top-20 left-10 z-10 
+                   md:w-40 md:left-20 absolute
+                   lg:w-50 lg:top-20 lg:left-28"
+          alt="Weather theme icon"
+        />
 
         {weatherData && !error && (
           <>
